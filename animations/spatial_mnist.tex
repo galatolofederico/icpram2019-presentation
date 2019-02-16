@@ -1,0 +1,30 @@
+\newcommand{\pararrow}[1]{
+    \draw [->, thick] (-2,#1) -- (-0.5,#1);
+}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw [step=1,black,thin] (0,0) grid (5,5);
+
+        \draw [fill=gray] (2,0) rectangle (3,5);
+        \draw [fill=gray] (1,0) rectangle (4,1);
+        \draw [fill=gray] (1,4) rectangle (2,5);
+
+        \uncover<2>{
+            \pararrow{4.5}
+        }
+        \uncover<3>{
+            \pararrow{3.5}
+        }
+        \uncover<4>{
+            \pararrow{2.5}
+        }
+        \uncover<5>{
+            \pararrow{1.5}
+        }
+        \uncover<6>{
+            \pararrow{0.5}
+        }
+
+    \end{tikzpicture}
+\end{center}

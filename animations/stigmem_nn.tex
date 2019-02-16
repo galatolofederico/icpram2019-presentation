@@ -2,12 +2,11 @@
 
 \begin{center}
     \begin{tikzpicture}[
-            %scale=0.5,
             vertical/.style={
                 rectangle, 
                 draw,
                 minimum width=1cm,
-                minimum height=2cm
+                minimum height=2cm,
             },
             horizontal/.style={
                 rectangle, 
@@ -53,8 +52,9 @@
         \pause
 
         \node (wrapper) at (space) [draw, dashed, rectangle, minimum height=8cm, minimum width=5.5cm] {};
-        \draw [->] (space.east) -- ++(2,0);
-
+        \node (class) at (9.5,0) [draw, rectangle, text width=2cm, align=center] {Classification ML System};
+        \draw [->] (space.east) -- (class);
+        \draw [->] (class.east) -- ++(0.5, 0);
 
 
     \end{tikzpicture}
