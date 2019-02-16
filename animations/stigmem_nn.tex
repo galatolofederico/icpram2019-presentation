@@ -1,4 +1,5 @@
 \def\hoffset{0.5}
+\def\voffset{0.3}
 
 \begin{center}
     \begin{tikzpicture}[
@@ -27,31 +28,31 @@
 
         \pause
 
-        \node (mark) at (5,1.5) [horizontal] {Deposit ML System};
-        \node (tick) at (5,-1.5) [horizontal] {Removal ML System};
+        \node (mark) at (5,1.3) [horizontal] {Deposit ML System};
+        \node (tick) at (5,-1.3) [horizontal] {Removal ML System};
 
         \pause
 
-        \draw [->] (input.east) |- ++(1.5,0) |- ($(mark.north west) + (\hoffset,\hoffset)$) -- ++(0, -\hoffset);
-        \draw [->] (input.east) |- ++(1.5,0) |- ($(tick.south west) + (\hoffset,-\hoffset)$) -- ++(0, \hoffset);
+        \draw [->] (input.east) |- ++(1.5,0) |- ($(mark.north west) + (\hoffset,\voffset)$) -- ++(0, -\voffset);
+        \draw [->] (input.east) |- ++(1.5,0) |- ($(tick.south west) + (\hoffset,-\voffset)$) -- ++(0, \voffset);
         \draw [->] (mark) -- (space);
         \draw [->] (tick) -- (space);
         
         \pause
 
-        \node (l1) at (6,3) [horizontal] {Normalization};
-        \node (l2) at (6,-3) [horizontal] {Normalization};
+        \node (l1) at (6,2.6) [horizontal] {Normalization};
+        \node (l2) at (6,-2.6) [horizontal] {Normalization};
 
         \pause
 
-        \draw [->] (space.east) |- ++(1,0) |- ($(l1.north) + (1,0.5)$) |- ($(l1.north) + (0,0.5)$) -- (l1.north);
-        \draw [->] (space.east) |- ++(1,0) |- ($(l2.south) + (1,-0.5)$) |- ($(l2.south) + (0,-0.5)$) -- (l2.south);
-        \draw [->] (l1.south) |- ($(mark.north) + (\hoffset,\hoffset)$) -- ++(0,-\hoffset);
-        \draw [->] (l2.north) |- ($(tick.south) + (\hoffset,-\hoffset)$) -- ++(0,\hoffset);
+        \draw [->] (space.east) |- ++(1,0) |- ($(l1.north) + (1,\voffset)$) |- ($(l1.north) + (0,\voffset)$) -- (l1.north);
+        \draw [->] (space.east) |- ++(1,0) |- ($(l2.south) + (1,-\voffset)$) |- ($(l2.south) + (0,-\voffset)$) -- (l2.south);
+        \draw [->] (l1.south) |- ($(mark.north) + (\hoffset,\voffset)$) -- ++(0,-\voffset);
+        \draw [->] (l2.north) |- ($(tick.south) + (\hoffset,-\voffset)$) -- ++(0,\voffset);
 
         \pause
 
-        \node (wrapper) at (space) [draw, dashed, rectangle, minimum height=8cm, minimum width=5.5cm] {};
+        \node (wrapper) at (space) [draw, dashed, rectangle, minimum height=7cm, minimum width=5.5cm] {};
         \node (class) at (9.5,0) [draw, rectangle, text width=2cm, align=center] {Classification ML System};
         \draw [->] (space.east) -- (class);
         \draw [->] (class.east) -- ++(0.5, 0);
