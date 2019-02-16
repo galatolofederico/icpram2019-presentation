@@ -1,6 +1,6 @@
 # Presentation for ICPRAM2019
 
-You can fine the PDF [here](https://github.com/galatolofederico/icpram2019-presentation/blob/master/presentation.pdf)
+You can find the PDF [here](https://github.com/galatolofederico/icpram2019-presentation/blob/master/presentation.pdf)
 
 ## Build it yourself
 
