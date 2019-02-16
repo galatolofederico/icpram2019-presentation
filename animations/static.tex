@@ -1,0 +1,44 @@
+\newcommand{\myblock}[4]{
+    \node (#4) at (#1, #2) [draw, minimum width=1cm, minimum height=1cm] {\small  #3};
+}
+
+\newcommand{\mybrace}[3]{
+    \draw [decorate,decoration={brace,amplitude=10pt,mirror,raise=4pt},yshift=0pt]
+    ($(#1, #2) + (-0.5,-0.4)$) -- ++(3, 0) node (#3) [black,midway,xshift=0.8cm] {};
+}
+
+\def\xrow{6}
+\def\yrow{0}
+
+\begin{center}
+    \begin{tikzpicture}
+        \foreach \x/\xtext/\name in {0/$X_0$/x0, 1/$X_1$/x1, 2/$X_2$/x2, 3/$X_3$/x3, 4/{...}/x4, 5/$X_{n-2}$/x5, 6/$X_{n-1}$/x6}{
+            \myblock{\x}{\xrow}{\xtext}{\name};
+        }
+
+        \node (center) at (3,3) [draw, minimum width=3cm, minimum height=2cm] {Static System};
+        
+        \foreach \x/\xtext/\name in {1.5/$Y_0$/y0, 2.5/$Y_1$/y1, 3.5/{...}/y2, 4.5/$Y_{n-1}$/y3}{
+            \myblock{\x}{\yrow}{\xtext}{\name};
+        }
+
+        \uncover<2>{
+            \mybrace{0}{6}{b1}
+            \draw [->] ($(b1) + (-0.8,-0.5)$) -- (center.north);
+            \draw [->] (center.south) -- (y0.north);
+        }
+
+       \uncover<3>{
+            \mybrace{1}{6}{b2}
+            \draw [->] ($(b2) + (-0.8,-0.5)$) -- (center.north);
+            \draw [->] (center.south) -- (y1.north);
+        }
+
+        \uncover<4>{
+            \mybrace{4}{6}{b3}
+            \draw [->] ($(b3) + (-0.8,-0.5)$) -- (center.north);
+            \draw [->] (center.south) -- (y3.north);
+        }
+
+    \end{tikzpicture}
+\end{center}

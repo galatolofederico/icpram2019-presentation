@@ -1,0 +1,174 @@
+\documentclass{beamer}
+
+\input{settings.tex}
+
+\title{Using stigmergy as a computational memory in the design of recurrent neural networks}
+\author{Federico A. Galatolo}
+\date{20 February 2019}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+    \frametitle{Time-Series Static Classification}
+    \begin{columns}
+        \begin{column}{0.2\textwidth}
+            \begin{itemize}
+                \item MLP
+                \item CNN
+                \item ...
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.8\textwidth}
+            \input{animations/static.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Time-Series Static Classification}
+    \begin{itemize}
+        \item[\checkmark] You can use any existing ML Architecture
+        \item[$\times$] Window size choice
+        \item[$\times$] Long-lived relationships are impossible to infer 
+    \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Time-Series Dynamic Classification}
+    \begin{columns}
+        \begin{column}{0.2\textwidth}
+            \begin{itemize}
+                \item RNN
+                \item LSTM
+                \item ...
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.8\textwidth}
+            \input{animations/dynamic.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Time-Series Dynamic Classification}
+    \begin{itemize}
+        \item[\checkmark] The system knows the concept of time
+        \item[\checkmark] Can autonomously decide what to remember and forget
+        \item[$\times$] Ad-Hoc solutions
+        \item[$\times$] Highly engineered
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{RNN $\ne$ LSTM}
+    \vspace{0.3cm}
+    \begin{itemize}
+        \item RNN and LSTM are often used as synonyms in literature 
+        \item Has been proven that ``Vanilla recursion'' performs poorly  
+        \item LSTM are the state of the art for Time Series Classification 
+    \end{itemize}
+    \input{animations/rnn.tex}
+\end{frame}
+
+\begin{frame}
+    \frametitle{A deep look inside an LSTM cell}
+    \input{animations/lstm.tex} \pause
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item $f_t = \sigma(W_f x_t + U_f h_t + b_f)$ \pause
+                \item $i_t = \sigma(W_i x_t + U_i h_t + b_i)$ \pause
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item $i_c = tan^{-1}(W_c x_t + U_c h_t + b_c)$ \pause
+                \item $c_t = f_t \circ c_{t-1}$ \pause + $i_t \circ i_c$
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{A deep look inside an LSTM cell}
+    \begin{itemize}
+        \item $f_i = \sigma (W_f x_i + U_f h_{i-1} + b_f)$
+        \item $i_i = \sigma (W_i x_i + U_i h_{i-1} + b_i)$
+        \item $o_i = \sigma (W_o x_i + U_o h_{i-1} + b_o)$
+        \item $c_i = \sigma (f_i \circ c_{i-1} + i_i \circ tan^{-1}(W_c X_i + U_c h_{i-1} + b_c))$
+        \item $h_t = o_i * tan^{-1}(c_i)$
+    \end{itemize}
+    \vspace{0.5cm}
+    Using
+    \begin{itemize}
+        \item $W_f,\;W_i,\;W_o,\;W_C \in R^{n\times h}$
+        \item $U_f,\;U_i,\;U_o,\;U_c \in R^{h\times h}$
+        \item $b_f,\;b_i,\;b_o,\;b_c \in R^h$
+    \end{itemize}
+    \vspace{0.5cm}
+
+    \pause
+
+    \begin{center}
+        \Large Can we do better?
+    \end{center}
+    
+    \pause
+
+    \begin{center}
+        \Large Can we do \textbf{simpler}?
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Let's take a step back}
+    \pause
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{img/ants.jpg}
+        \end{column}
+        \pause
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{img/birds.jpg}
+        \end{column}
+        \pause
+    \end{columns}
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item Complex behaviors can \textbf{emerge} from simple ones
+        \item Emergence is a key phenomenon in nature
+        \item \textbf{Stigmergy} is one of the tools nature uses to achieve emergence
+    \end{itemize}
+    \vspace{0.3cm}
+    \pause
+    \begin{center}
+        Can we \textbf{emerge} a computational memory using the \textbf{stigmergy}?
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Biological Stigmergy}
+    \begin{center}
+        Implemented in nature via pheromonic marks 
+    \end{center}
+    \pause
+    \input{animations/stigmergy.tex}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Computational Stigmergy}
+    \input{animations/comp_stigmergy.tex}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Stigmergic Memory Neural Network}
+
+\end{frame}
+
+\end{document}
+
+
+

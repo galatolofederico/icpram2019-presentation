@@ -1,0 +1,38 @@
+\begin{center}
+    \begin{tikzpicture}[
+            cell/.style={
+                rectangle, 
+                draw,
+                minimum width=2cm,
+                minimum height=1cm
+            },
+            operator/.style={
+                circle,
+                draw,
+                inner sep=-0.5pt,
+                minimum height =.5cm,
+            }
+        ]
+        \node (deposit) at (0,2.5) [cell] {Deposit};
+        \node (removal) at (0,-2.5) [cell] {Removal};
+
+        \pause
+
+        \node (plus) [operator] at (0,0) {+};
+        \draw [->] (deposit) -- (plus) node[midway, right] {+};
+        \draw [->] (removal) -- (plus) node[midway, right] {-};
+        
+        \pause
+
+        \node (clamp) at (1.5,0) [operator] {C};
+        \draw [->] (plus) -- (clamp);
+        \draw [->] (clamp.east) |- ++(0.5,0) |- ++(0, -0.75) |- ($(plus.west) + (-0.5,-0.75)$) |- ++(0, 0.75) |- (plus.west) ;
+
+        \pause
+
+        \node (memory) at (0,0) [draw, dashed, minimum height=3cm, minimum width=6cm] {};
+        \draw [->] (clamp.east) -- ++(2.5,0);
+
+
+    \end{tikzpicture}
+\end{center}

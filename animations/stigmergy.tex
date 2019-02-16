@@ -1,0 +1,40 @@
+\begin{center}
+    \begin{tikzpicture}[
+            cell/.style={
+                rectangle, 
+                draw,
+                minimum width=2cm,
+                minimum height=1cm
+            }
+        ]
+        \node (mark) at (2.5,0) [cell] {Mark};
+        
+        \pause
+        
+        \node (stimulus) at (2.5,5) [cell] {Stimulus};
+        
+        \pause
+        
+        \node (deposit) at (0.75,2.5) [cell] {Deposit};
+        \node (removal) at (4.25,2.5) [cell] {Removal};
+        
+        \pause
+
+        \draw [->] (stimulus) -- (deposit) node[midway,left] {affects};
+        \draw [->] (stimulus) -- (removal) node[midway,right] {affects};
+
+        \pause
+        
+        \draw [->] (deposit) -- (mark) node[midway, left] {reinforces};
+        
+        \pause
+        
+        \draw [->] (removal) -- (mark) node[midway, right] {weakens};
+
+        \pause
+
+        \draw [->] (mark.west) |- ($(mark.west) + (-2.5,.0)$) |- (deposit.west) node[midway, left] {affects};
+        \draw [->] (mark.east) |- ($(mark.east) + (2.5,.0)$)  |- (removal.east) node[midway, right] {affects};        
+
+    \end{tikzpicture}
+\end{center}
