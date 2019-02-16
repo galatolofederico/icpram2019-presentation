@@ -169,11 +169,23 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Experimental ML Systems}
+    \frametitle{Experimental Stigmergic ML Systems}
     Neural Networks Used as Deposit, Removal and Classification Systems
     \vspace{1.5cm}
     \input{animations/nn.tex}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Experimental Architectures}
+    \begin{itemize}
+        \item Stigmergic Memory NNs
+        \item LSTMs
+        \item Vanilla RNNs
+        \item FF NNs (only with spatial dataset)
+    \end{itemize}
+\end{frame}
+
+
 
 \begin{frame}
     \frametitle{Experimental Results: Spatial MNIST}
@@ -186,12 +198,17 @@
         \begin{tabular}{l | c | c}
             Architecture & N. Parameters & Accuracy \\
             \hline
-            Stigmergic Memory & 3190 & $96.5 \pm 0.5$ \% \\
+            \text{Stigmergic Memory} & 3190 & $96.5 \pm 0.5$ \% \\
             Static Feed Forward & 328810 & $95.1 \pm 0.02$ \% \\
             LSTM & 3360 & $94.3 \pm 0.1$ \% \\
             RNN & 3482 & $76.6 \pm 0.3$ \% \\
         \end{tabular}
     \end{table}
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item Outperforms LSTMs, Vanilla RNNs and FFs
+        \item Best performances, smaller number of parameters
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -205,12 +222,41 @@
         \begin{tabular}{l | c | c}
             Architecture & N. Parameters & Accuracy \\
             \hline
-            Stigmergic Memory & 5420 & $94.67 \pm 0.7$ \% \\
             LSTM & 5490 & $94.96 \pm 0.2$ \% \\
+            \textbf{Stigmergic Memory} & 5420 & $94.67 \pm 0.7$ \% \\
             RNN & 5480 & $72.95 \pm 11$ \% \\
         \end{tabular}
     \end{table}
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item Outperforms Vanilla RNNs
+        \item Same performances as LSTMs
+    \end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Keep in touch}
+    \begin{center}
+        \large You can find the pytorch implementation on GitHub
+        \includegraphics[width=.30\textwidth]{img/qr.png} \\
+        \small https://github.com/galatolofederico/icpram2019
+    \end{center}
+    \begin{columns}
+        \begin{column}{.5\textwidth}
+            \begin{itemize}
+                \item [\faEnvelope] federico.galatolo@ing.unipi.it
+                \item [\faPaperPlane] @galatolo
+            \end{itemize}
+        \end{column}
+        \begin{column}{.5\textwidth}
+            \begin{itemize}
+                \item [\faGlobe] federico.galatolo@ing.unipi.it
+                \item [\faGithub] @galatolofederico
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 
 \end{document}
 
