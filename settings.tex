@@ -10,9 +10,18 @@
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{shapes}
 
-\setbeamertemplate{navigation symbols}{%
-\insertslidenavigationsymbol \insertframenavigationsymbol \insertsubsectionnavigationsymbol \insertsectionnavigationsymbol \insertdocnavigationsymbol \insertbackfindforwardnavigationsymbol \hspace{1em}%
-\usebeamerfont{footline} \insertframenumber/\inserttotalframenumber%
+%\setbeamertemplate{navigation symbols}{%
+%\insertslidenavigationsymbol \insertframenavigationsymbol \insertsubsectionnavigationsymbol \insertsectionnavigationsymbol \insertdocnavigationsymbol \insertbackfindforwardnavigationsymbol \hspace{1em}%
+%\usebeamerfont{footline} \insertframenumber/\inserttotalframenumber%
+%}
+
+\beamertemplatenavigationsymbolsempty
+\addtobeamertemplate{navigation symbols}{}{%
+    %\usebeamerfont{footline}%
+    \footnotesize
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
 }
 
 \usetheme{Frankfurt}
