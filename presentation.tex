@@ -194,9 +194,23 @@
     \end{table}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Experimental Results: Temporal MNIST}
+    \input{animations/temporal_mnist.tex}
+\end{frame}
 
-
-
+\begin{frame}
+    \frametitle{Experimental Results: Temporal MNIST}
+    \begin{table}
+        \begin{tabular}{l | c | c}
+            Architecture & N. Parameters & Accuracy \\
+            \hline
+            Stigmergic Memory & 5420 & $94.67 \pm 0.7$ \% \\
+            LSTM & 5490 & $94.96 \pm 0.2$ \% \\
+            RNN & 5480 & $72.95 \pm 11$ \% \\
+        \end{tabular}
+    \end{table}
+\end{frame}
 
 \end{document}
 

@@ -1,7 +1,7 @@
-all: clean
+all:
 	latexmk -pdf presentation.tex
-	latexmk -c
-	rm -f *.nav *.snm *.fdb_latexmk *.synctex.gz
 
 clean:
+	latexmk -c
+	rm -f *.nav *.snm *.fdb_latexmk *.synctex.gz
 	rm -f presentation.pdf
