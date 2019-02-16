@@ -1,0 +1,61 @@
+\def\hoffset{0.5}
+
+\begin{center}
+    \begin{tikzpicture}[
+            %scale=0.5,
+            vertical/.style={
+                rectangle, 
+                draw,
+                minimum width=1cm,
+                minimum height=2cm
+            },
+            horizontal/.style={
+                rectangle, 
+                draw,
+                minimum width=2cm,
+                minimum height=0.75cm
+            }
+        ]
+        \tikzstyle{every node}=[font=\scriptsize]
+        
+        \pause
+
+        \node (input) at (1,0) [vertical] {Input};
+        
+        \pause
+
+        \node (space) at (5,0) [horizontal] {Stigmergic Memory};
+
+        \pause
+
+        \node (mark) at (5,1.5) [horizontal] {Deposit ML System};
+        \node (tick) at (5,-1.5) [horizontal] {Removal ML System};
+
+        \pause
+
+        \draw [->] (input.east) |- ++(1.5,0) |- ($(mark.north west) + (\hoffset,\hoffset)$) -- ++(0, -\hoffset);
+        \draw [->] (input.east) |- ++(1.5,0) |- ($(tick.south west) + (\hoffset,-\hoffset)$) -- ++(0, \hoffset);
+        \draw [->] (mark) -- (space);
+        \draw [->] (tick) -- (space);
+        
+        \pause
+
+        \node (l1) at (6,3) [horizontal] {Normalization};
+        \node (l2) at (6,-3) [horizontal] {Normalization};
+
+        \pause
+
+        \draw [->] (space.east) |- ++(1,0) |- ($(l1.north) + (1,0.5)$) |- ($(l1.north) + (0,0.5)$) -- (l1.north);
+        \draw [->] (space.east) |- ++(1,0) |- ($(l2.south) + (1,-0.5)$) |- ($(l2.south) + (0,-0.5)$) -- (l2.south);
+        \draw [->] (l1.south) |- ($(mark.north) + (\hoffset,\hoffset)$) -- ++(0,-\hoffset);
+        \draw [->] (l2.north) |- ($(tick.south) + (\hoffset,-\hoffset)$) -- ++(0,\hoffset);
+
+        \pause
+
+        \node (wrapper) at (space) [draw, dashed, rectangle, minimum height=8cm, minimum width=5.5cm] {};
+        \draw [->] (space.east) -- ++(2,0);
+
+
+
+    \end{tikzpicture}
+\end{center}
