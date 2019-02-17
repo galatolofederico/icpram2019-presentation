@@ -1,3 +1,6 @@
+\def\hoffset{0.2}
+\def\voffset{0.5}
+
 \begin{center}
     \begin{tikzpicture}[
             cell/.style={
@@ -35,6 +38,11 @@
 
         \draw [->] (mark.west) |- ($(mark.west) + (-2.5,.0)$) |- (deposit.west) node[midway, left] {affects};
         \draw [->] (mark.east) |- ($(mark.east) + (2.5,.0)$)  |- (removal.east) node[midway, right] {affects};        
+        
+        \pause
+
+        \draw [->] ($(mark.south east) + (-\hoffset,0) $) |- ++(0, -\voffset) |- ($(mark.south) + (\hoffset,-\voffset)$) -- ++(0, \voffset) node [midway, below, xshift=0.8cm, yshift=-0.2cm] {Finishes};
+        \draw [->] ($(mark.south west) + (\hoffset,0) $) |- ++(0, -\voffset) |- ($(mark.south) + (-\hoffset,-\voffset)$) -- ++(0, \voffset) node [midway, below, xshift=-0.8cm, yshift=-0.2cm] {Saturates};
 
     \end{tikzpicture}
 \end{center}

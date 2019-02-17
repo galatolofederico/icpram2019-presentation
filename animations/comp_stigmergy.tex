@@ -26,6 +26,9 @@
 
         \node (clamp) at (1.5,0) [operator] {C};
         \draw [->] (plus) -- (clamp);
+        
+        \pause
+        
         \draw [->] (clamp.east) |- ++(0.5,0) |- ++(0, -0.75) |- ($(plus.west) + (-0.5,-0.75)$) |- ++(0, 0.75) |- (plus.west) ;
 
         \pause
