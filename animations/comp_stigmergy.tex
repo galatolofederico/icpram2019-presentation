@@ -28,12 +28,12 @@
         \draw [->] (plus) -- (clamp);
         
         \pause
-        
+
         \draw [->] (clamp.east) |- ++(0.5,0) |- ++(0, -0.75) |- ($(plus.west) + (-0.5,-0.75)$) |- ++(0, 0.75) |- (plus.west) ;
 
         \pause
 
-        \node (memory) at (0,0) [draw, dashed, minimum height=3cm, minimum width=6cm] {};
+        \node (memory) at (0,0) [draw, dashed, minimum height=3cm, minimum width=6cm, label={[rotate=90,anchor=north, yshift=0.75cm]west:Stigmergic Memory}] {};
         \draw [->] (clamp.east) -- ++(2.5,0);
 
 
